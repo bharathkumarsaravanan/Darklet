@@ -1,0 +1,27 @@
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// ✅ Use this pattern to avoid declaring __dirname manually
+const rootPath = path.dirname(fileURLToPath(import.meta.url));
+
+export default defineConfig({
+  plugins: [react()],
+  build: {
+    lib: {
+      entry: path.resolve(rootPath, "src/index.ts"),
+      name: "Darklet",
+      fileName: (format) => `darklet.${format}.js`,
+    },
+    rollupOptions: {
+      external: ["react", "react-dom"],
+      output: {
+        globals: {
+          react: "React",
+          "react-dom": "ReactDOM",
+        },
+      },
+    },
+  },
+});
