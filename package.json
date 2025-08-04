@@ -2,7 +2,7 @@
   "name": "@bharathsaravanan/darklet",
   "author": "Bharath Saravanan",
   "license": "MIT",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publishConfig": {
     "access": "public"
   },
@@ -12,7 +12,13 @@
   "files": [
     "dist"
   ],
-  "keywords": ["react", "component", "dark", "ui", "library"],
+  "keywords": [
+    "react",
+    "component",
+    "dark",
+    "ui",
+    "library"
+  ],
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
