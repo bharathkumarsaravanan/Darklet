@@ -1,25 +1,26 @@
 import React from "react";
+import { StyledButton } from "./Button.styles";
 
-type ButtonProps = {
+interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   children: React.ReactNode;
   styles?: object;
   onClick?: () => void;
   disabled?: boolean;
-  variant?: "dark" | "light" | "outline";
+  variant?: "outline" | "filled";
   size?: "small" | "medium" | "large";
 };
 
-export const Button: React.FC<ButtonProps> = ({
+export const Button = ({
   children,
   styles={},
   onClick=()=> {},
   disabled=false,
-  variant="dark",
+  variant="filled",
   size="medium",
   ...rest
-}) => {
+}: ButtonProps) => {
   return (
-    <button
+    <StyledButton
       style={styles}
       onClick={onClick}
       disabled={disabled}
@@ -27,7 +28,7 @@ export const Button: React.FC<ButtonProps> = ({
       {...rest}
     >
       {children}
-    </button>
+    </StyledButton>
   );
 };
 
