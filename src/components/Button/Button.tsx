@@ -6,7 +6,7 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement>{
   styles?: object;
   onClick?: () => void;
   disabled?: boolean;
-  variant?: "outline" | "filled";
+  variant?: "outline" | "filled" | "invert" | "danger";
   size?: "small" | "medium" | "large";
 };
 

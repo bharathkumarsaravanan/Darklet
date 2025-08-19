@@ -1,5 +1,6 @@
 import type { Preview } from '@storybook/react';
 import { themes } from '@storybook/theming';
+import "../src/storybook.css"
 
 const preview: Preview = {
   parameters: {
@@ -32,5 +33,15 @@ export const globalTypes = {
     }
   }
 }
+
+// Ensure #portal exists for React.createPortal
+const ensurePortal = () => {
+  if (!document.getElementById("portal")) {
+    const portalRoot = document.createElement("div");
+    portalRoot.id = "portal";
+    document.body.appendChild(portalRoot);
+  }
+};
+ensurePortal();
 
 export default preview;

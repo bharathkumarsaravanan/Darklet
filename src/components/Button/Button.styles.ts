@@ -16,6 +16,15 @@ export const StyledButton = styled('button', {
         backgroundColor: 'transparent',
         border: '1px solid $foreground',
     },
+    '&.invert': {
+        backgroundColor: "$text",
+        color: "$background"
+    },
+    '&.danger': {
+        backgroundColor: '$dangerBorder',
+        border: '1px solid $dangerBorder',
+        color: "$dangerText"
+    },
     '&:disabled': {
         opacity: .5,
         cursor: 'not-allowed',
