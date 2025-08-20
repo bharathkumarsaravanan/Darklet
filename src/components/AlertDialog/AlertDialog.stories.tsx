@@ -73,6 +73,34 @@ export const DeleteAction: Story = {
   }
 }
 
+export const CloseAction: Story = {
+  args: {
+    isOpen: false,
+  },
+  render: (args) => {
+    const [open, setOpen] = useState<boolean>(args.isOpen);
+
+    return (
+      <>
+        <Button variant="danger" onClick={() => setOpen(true)}>Delete</Button>
+        <AlertDialog isOpen={open}>
+          <AlertDialogHeader closeEnabled={true} closeAction={() => setOpen(false)}>
+              Are you sure to delete this account?
+          </AlertDialogHeader>
+          <AlertDialogBody>
+            This action cannot be undone. This will permanently delete your account and remove your data from our servers.
+          </AlertDialogBody>
+          <AlertDialogActions> 
+            <Button onClick={() => setOpen(false)} variant="outline">Cancel</Button>
+            <Button onClick={() => setOpen(false)} variant="danger">Yes, Delete</Button>
+          </AlertDialogActions>
+        </AlertDialog>
+      </>
+      
+    )
+  }
+}
+
 
 
 export default meta;

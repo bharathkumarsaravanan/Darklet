@@ -18,7 +18,16 @@ export const StyledAlertDialogHeader = styled("div", {
     color: "$text",
     fontSize: "18px",
     padding: "20px 25px 10px 25px",
-    fontFamily: "$default"
+    fontFamily: "$default",
+    position: "relative",
+    ".close-icon": {
+        position: "absolute",
+        top: "5px",
+        right: "5px",
+        width: "20px",
+        height: "auto",
+        cursor: "pointer"
+    }
 })
 
 export const StyledAlertDialogBody = styled("div", {

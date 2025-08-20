@@ -2,6 +2,7 @@ import { type ReactNode } from "react";
 import { Button } from "../Button/Button";
 import { createPortal } from "react-dom";
 import { StylesAlertDialog, StyledAlertDialogHeader, StyledAlertDialogBody, StyledAlertDialogActions } from "./AlertDialog.styles";
+import CloseIcon from "../../assets/icons/close.svg";
 
 interface AlertDialogProps {
     isOpen: boolean;
@@ -42,10 +43,15 @@ export const AlertDialog = ({
 }
 
 export const AlertDialogHeader = ({
-    children
-}: { children: ReactNode}) => {
+    children,
+    closeEnabled=false,
+    closeAction
+}: { children: ReactNode, closeEnabled?: boolean, closeAction?: () => void}) => {
     return (
         <StyledAlertDialogHeader>
+            {
+                closeEnabled && <img className="close-icon" onClick={closeAction} src={CloseIcon} alt="Close"/>
+            }
             {children}
         </StyledAlertDialogHeader>
     )
