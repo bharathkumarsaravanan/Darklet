@@ -35,7 +35,8 @@ export const AlertDialog = ({
     console.log(portalContainer, isOpen)
     return (
         <>
-            {(isOpen && portalContainer) && createPortal(<StylesAlertDialog className="alert-dialog">
+            {(isOpen && portalContainer) && 
+            createPortal(<StylesAlertDialog className="alert-dialog popup back-shadow">
                 {children}
             </StylesAlertDialog>, portalContainer)}
         </>
