@@ -29,7 +29,61 @@ export const Default: Story = {
     render: (args) => {
         const [open, setOpen] = useState<boolean>(args.isOpen);
         return (
-            <div style={{position: "relative", paddingTop: "40px"}}>
+            <div style={{position: "relative", width: "800px", paddingTop: "140px"}}>
+                <Button onClick={()=> setOpen(true)}>Click here!</Button>
+                <Alert {...args} isOpen={open} closeAction={() => setOpen(false)} />
+            </div>
+        )
+    }
+}
+
+export const Danger: Story = {
+    args: {
+        isOpen: false,
+        title: "Success! Your changes have been saved",
+        children: <p>This is an alert with icon, title and description.</p>,
+        variant: "danger"
+    },
+    render: (args) => {
+        const [open, setOpen] = useState<boolean>(args.isOpen);
+        return (
+            <div style={{position: "relative", width: "800px", paddingTop: "140px"}}>
+                <Button onClick={()=> setOpen(true)}>Click here!</Button>
+                <Alert {...args} isOpen={open} closeAction={() => setOpen(false)} />
+            </div>
+        )
+    }
+}
+
+export const Success: Story = {
+    args: {
+        isOpen: false,
+        title: "Success! Your changes have been saved",
+        children: <p>This is an alert with icon, title and description.</p>,
+        variant: "success"
+    },
+    render: (args) => {
+        const [open, setOpen] = useState<boolean>(args.isOpen);
+        return (
+            <div style={{position: "relative", width: "800px", paddingTop: "140px"}}>
+                <Button onClick={()=> setOpen(true)}>Click here!</Button>
+                <Alert {...args} isOpen={open} closeAction={() => setOpen(false)} />
+            </div>
+        )
+    }
+}
+
+export const Warning: Story = {
+    args: {
+        isOpen: false,
+        title: "Success! Your changes have been saved",
+        children: <p>This is an alert with icon, title and description.</p>,
+        variant: "warning"
+    },
+    render: (args) => {
+        const [open, setOpen] = useState<boolean>(args.isOpen);
+        return (
+            <div style={{position: "relative", width: "800px", paddingTop: "140px"}}>
                 <Button onClick={()=> setOpen(true)}>Click here!</Button>
                 <Alert {...args} isOpen={open} closeAction={() => setOpen(false)} />
             </div>

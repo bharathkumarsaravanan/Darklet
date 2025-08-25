@@ -1,6 +1,7 @@
 // src/stitches.config.ts
 import { createStitches } from '@stitches/react';
 import { darkThemeAlert, lightThemeAlert } from './themeStyle/alert';
+import { darkThemeSelect, lightThemeSelect } from './themeStyle/Select';
 
 export const {
   styled,
@@ -25,7 +26,8 @@ export const {
       inputTxtColor: "#242424",
       dangerBorder: "#c80202ff",
       dangerText: "#fff",
-      ...lightThemeAlert
+      ...lightThemeAlert,
+      ...lightThemeSelect,
     },
     fonts: {
       default: '"Nunito", sans-serif',
@@ -50,6 +52,7 @@ export const darkTheme = createTheme({
     inputTxtColor: "#EEEEEE",
     dangerBorder: "#510E1C",
     dangerText: "#FF8A88",
-    ...darkThemeAlert
+    ...darkThemeAlert,
+    ...darkThemeSelect,
   }
 })

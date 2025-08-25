@@ -1,8 +1,16 @@
 import type { Preview } from '@storybook/react';
 import { themes } from '@storybook/theming';
-import "../src/storybook.css"
+import "../src/storybook.css";
+import { DarkletProvider } from "../src/styles/DarkletProvider";
 
 const preview: Preview = {
+  decorators: [
+    (Story) => (
+      <DarkletProvider>
+        < Story/>
+      </DarkletProvider>
+    )
+  ],
   parameters: {
     actions: { argTypesRegex: '^on[A-Z].*' },
     docs: {

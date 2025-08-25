@@ -4,9 +4,9 @@ import WarningIcon from "../../assets/icons/warning.svg";
 import DangerIcon from "../../assets/icons/danger.svg";
 import Regularicon from "../../assets/icons/regular.svg";
 import closeIcon from "../../assets/icons/close.svg";
-import { StyledAlert, StyledTitle } from "./Alert.styles";
+import { StyledAlert, StyledTitle, StyledChildren } from "./Alert.styles";
 
-interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
+interface AlertProps extends React.HTMLAttributes<HTMLDivElement> { 
     isOpen: boolean;
     title: string;
     children?: ReactNode;
@@ -24,6 +24,7 @@ export const Alert:React.FC<AlertProps> = ({
     variant = "regular",
     autoClose = true,
     enableClose = true,
+    topPosition= "0px",
     ...rest
 }) => {
 
@@ -43,20 +44,24 @@ export const Alert:React.FC<AlertProps> = ({
     if (!isOpen) return null
 
     return (
-        <StyledAlert style={{top: rest.topPosition}} className={`${variant} popup`}>
+        <StyledAlert variant={variant} style={{top: topPosition}} className={`darklet popup`}>
             <div>
-                <img width="15px" height="auto" src={rest.customIcon || renderIcon(variant)} alt="icon" />
+                <img width="15px" height="auto" style={{marginTop: "3px"}} src={rest.customIcon || renderIcon(variant)} alt="icon" />
             </div>
             <div>
                 
                 <>
-                    <StyledTitle>{title}</StyledTitle>
-                    {rest.children && rest.children}
+                    <StyledTitle variant={variant}>{title}</StyledTitle>
+                    {rest.children && (
+                        <StyledChildren variant={variant}>
+                            {rest.children} 
+                        </StyledChildren>
+                    )}
                 </>
                 
             </div>
             {
-                (enableClose && rest.closeAction) && <img width="15px" height="auto" src={closeIcon} onClick={rest.closeAction}  />
+                (enableClose && rest.closeAction) && <img width="15px" alt="close" height="auto" src={closeIcon} onClick={rest.closeAction}  />
             }
         </StyledAlert>
     )
